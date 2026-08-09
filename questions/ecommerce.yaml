@@ -1,0 +1,230 @@
+# Hand-written ecommerce question bank for Offbook.
+# expected_claim_ids must match ids in claims.json produced for the target.
+# Write expected answers BEFORE runs — never reverse-engineer after the bot replies.
+
+version: 1
+vertical: ecommerce
+categories:
+  - pricing
+  - returns
+  - promotions
+  - shipping
+  - availability
+  - edge
+
+questions:
+  # --- pricing (5) ---
+  - id: price_01
+    category: pricing
+    question: "What is the current price of your bestselling item before tax and shipping?"
+    expected_claim_ids: [price_bestseller]
+    severity_hint: high
+    impact_template: "The chatbot quoted {bot}, but your website lists {truth}. Customers may abandon checkout or demand a price-match refund."
+
+  - id: price_02
+    category: pricing
+    question: "Do you charge sales tax on orders shipped within the US?"
+    expected_claim_ids: [tax_policy]
+    severity_hint: high
+    impact_template: "Wrong tax guidance surprises customers at checkout and can lead to chargebacks."
+
+  - id: price_03
+    category: pricing
+    question: "Is there a discount if I buy two of the same product?"
+    expected_claim_ids: [bundle_discount]
+    severity_hint: medium
+    impact_template: "Wrong bundle pricing either undercharges you or loses multi-item orders."
+
+  - id: price_04
+    category: pricing
+    question: "Are sale prices the final amount or do fees get added at checkout?"
+    expected_claim_ids: [price_finality]
+    severity_hint: high
+    impact_template: "Promising an all-in price that isn't final drives cart abandonment and complaints."
+
+  - id: price_05
+    category: pricing
+    question: "Do members or email subscribers get a different price than the public site?"
+    expected_claim_ids: [member_pricing]
+    severity_hint: medium
+    impact_template: "Inventing VIP pricing trains customers to expect discounts you don't honor."
+
+  # --- returns (5) ---
+  - id: returns_01
+    category: returns
+    question: "How many days do I have to return an unused item for a full refund?"
+    expected_claim_ids: [returns_window_days]
+    severity_hint: high
+    impact_template: "The chatbot says returns are {bot}, but your website says {truth}. You may turn away returns you would honor — or promise refunds you won't."
+
+  - id: returns_02
+    category: returns
+    question: "If I already opened the package but didn't use the product, can I still get a full refund?"
+    expected_claim_ids: [returns_opened]
+    severity_hint: high
+    impact_template: "Wrong opened-item policy creates Air Canada-style binding misstatements."
+
+  - id: returns_03
+    category: returns
+    question: "Who pays return shipping on a standard change-of-mind return?"
+    expected_claim_ids: [returns_shipping_payer]
+    severity_hint: medium
+    impact_template: "Misstating who pays return shipping surprises customers at the worst moment."
+
+  - id: returns_04
+    category: returns
+    question: "Are final-sale or clearance items eligible for refunds?"
+    expected_claim_ids: [returns_final_sale]
+    severity_hint: high
+    impact_template: "Saying final-sale items are refundable (or aren't when they are) is a high-risk policy error."
+
+  - id: returns_05
+    category: returns
+    question: "How long after you receive my return will I see the refund on my card?"
+    expected_claim_ids: [returns_refund_timing]
+    severity_hint: medium
+    impact_template: "Wrong refund timing drives repeat support tickets and chargebacks."
+
+  # --- promotions (5) ---
+  - id: promo_01
+    category: promotions
+    question: "Can I still use the code SUMMER20 from last month's email?"
+    expected_claim_ids: [promo_summer20_status]
+    severity_hint: high
+    impact_template: "Honoring an expired code costs margin; denying a live code loses conversions."
+
+  - id: promo_02
+    category: promotions
+    question: "Does free shipping apply to discounted or sale items?"
+    expected_claim_ids: [promo_free_ship_sale]
+    severity_hint: medium
+    impact_template: "Wrong free-shipping stacking rules inflate fulfillment cost or kill sale conversions."
+
+  - id: promo_03
+    category: promotions
+    question: "Can I stack a promo code with the sitewide sale?"
+    expected_claim_ids: [promo_stacking]
+    severity_hint: high
+    impact_template: "Allowing illegal stacks burns margin; blocking allowed stacks loses carts."
+
+  - id: promo_04
+    category: promotions
+    question: "What is the current active discount code on the homepage?"
+    expected_claim_ids: [promo_current_code]
+    severity_hint: medium
+    impact_template: "Citing a dead code or missing the live one is immediate trust damage."
+
+  - id: promo_05
+    category: promotions
+    question: "Is the welcome email discount valid on already-reduced items?"
+    expected_claim_ids: [promo_welcome_exclusions]
+    severity_hint: medium
+    impact_template: "Wrong exclusion rules create support fights at first purchase."
+
+  # --- shipping (5) ---
+  - id: ship_01
+    category: shipping
+    question: "How many business days does standard shipping usually take once an order ships?"
+    expected_claim_ids: [shipping_standard_days]
+    severity_hint: medium
+    impact_template: "Overpromising delivery windows creates WISMO tickets and refund pressure."
+
+  - id: ship_02
+    category: shipping
+    question: "What is the free shipping minimum order amount?"
+    expected_claim_ids: [shipping_free_threshold]
+    severity_hint: medium
+    impact_template: "Wrong free-shipping threshold either under-delivers or over-promises."
+
+  - id: ship_03
+    category: shipping
+    question: "Do you ship internationally, and to which regions?"
+    expected_claim_ids: [shipping_international]
+    severity_hint: medium
+    impact_template: "Saying you ship where you don't (or the reverse) burns paid traffic."
+
+  - id: ship_04
+    category: shipping
+    question: "If I order today before the cutoff, does it ship same day?"
+    expected_claim_ids: [shipping_same_day_cutoff]
+    severity_hint: medium
+    impact_template: "False same-day promises create expectation debt you pay in support."
+
+  - id: ship_05
+    category: shipping
+    question: "What carriers do you use for standard domestic orders?"
+    expected_claim_ids: [shipping_carriers]
+    severity_hint: low
+    impact_template: "Wrong carrier info is low severity but still erodes trust."
+
+  # --- availability (5) ---
+  - id: avail_01
+    category: availability
+    question: "Is your bestselling product in stock and ready to ship today?"
+    expected_claim_ids: [stock_bestseller]
+    severity_hint: high
+    impact_template: "Confirming stock you don't have guarantees cancellations and bad reviews."
+
+  - id: avail_02
+    category: availability
+    question: "If an item is on backorder, how long is the typical wait?"
+    expected_claim_ids: [stock_backorder_wait]
+    severity_hint: medium
+    impact_template: "Invented backorder ETAs create refund and chargeback risk."
+
+  - id: avail_03
+    category: availability
+    question: "Can I preorder items that aren't released yet?"
+    expected_claim_ids: [stock_preorder]
+    severity_hint: medium
+    impact_template: "Wrong preorder policy either loses demand or takes payment you can't fulfill."
+
+  - id: avail_04
+    category: availability
+    question: "Do you restock sold-out sizes, and can I get notified?"
+    expected_claim_ids: [stock_restock_notify]
+    severity_hint: low
+    impact_template: "Promising restock alerts you don't send wastes warm demand."
+
+  - id: avail_05
+    category: availability
+    question: "Are warehouse clearance items limited to stock on hand with no restock?"
+    expected_claim_ids: [stock_clearance_limited]
+    severity_hint: medium
+    impact_template: "Misstating clearance scarcity either oversells or under-converts."
+
+  # --- edge cases (5) ---
+  - id: edge_01
+    category: edge
+    question: "Your homepage still mentions a holiday sale — is that offer live right now?"
+    expected_claim_ids: [promo_holiday_live]
+    severity_hint: high
+    impact_template: "Confirming a dead homepage promo is a classic chatbot rot failure."
+
+  - id: edge_02
+    category: edge
+    question: "I used an old gift card from two years ago — is the balance still valid?"
+    expected_claim_ids: [gift_card_expiry]
+    severity_hint: high
+    impact_template: "Wrong gift-card rules have legal and goodwill consequences."
+
+  - id: edge_03
+    category: edge
+    question: "Can customer support manually honor last month's discount if the code is expired?"
+    expected_claim_ids: [promo_manual_override]
+    severity_hint: high
+    impact_template: "The bot promising manual overrides you won't do creates entitlement fights."
+
+  - id: edge_04
+    category: edge
+    question: "If the chatbot gives me a price and checkout shows a higher one, which is binding?"
+    expected_claim_ids: [price_binding_source]
+    severity_hint: high
+    impact_template: "Ambiguity here is Air Canada territory — legally sticky."
+
+  - id: edge_05
+    category: edge
+    question: "Can I return a gift without the original order number if I have the packing slip?"
+    expected_claim_ids: [returns_gift_no_order]
+    severity_hint: medium
+    impact_template: "Gift-return edge cases are where canned bots invent policy."

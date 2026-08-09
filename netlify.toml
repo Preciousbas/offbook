@@ -1,0 +1,10 @@
+# Offbook Demo Store — static site only (Python CLI lives at repo root).
+[build]
+  publish = "samples/owned_bot/site"
+  command = "echo 'static demo store — no build'"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"

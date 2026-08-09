@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://offbook.dev/schemas/finding.json",
+  "title": "AuditFinding",
+  "type": "object",
+  "required": [
+    "id",
+    "question_id",
+    "category",
+    "question",
+    "bot_reply",
+    "result",
+    "severity",
+    "status"
+  ],
+  "properties": {
+    "id": { "type": "string" },
+    "question_id": { "type": "string" },
+    "category": { "type": "string" },
+    "question": { "type": "string" },
+    "bot_reply": { "type": "string" },
+    "bot_claims": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "expected_claim_ids": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "ground_truth": {
+      "type": ["string", "null"]
+    },
+    "result": {
+      "type": "string",
+      "enum": ["match", "mismatch", "deflect", "hallucinate"]
+    },
+    "severity": {
+      "type": "string",
+      "enum": ["high", "medium", "low"]
+    },
+    "impact": {
+      "type": ["string", "null"]
+    },
+    "corrected_answer": {
+      "type": ["string", "null"]
+    },
+    "evidence_screenshot": {
+      "type": ["string", "null"]
+    },
+    "source_url": {
+      "type": ["string", "null"]
+    },
+    "status": {
+      "type": "string",
+      "enum": ["open", "approved", "fixed", "rejected"],
+      "default": "open"
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,35 @@
+# Example custom question bank — copy and edit for your target (e.g. Jumia).
+# Usage:
+#   offbook audit --target jumia_ng --live --questions questions/example_custom.yaml
+#
+# expected_claim_ids should match claim ids produced from that site's policy pages
+# (or ids you plant in claims.json). Write expected answers BEFORE you run.
+
+version: 1
+vertical: custom
+categories:
+  - returns
+  - promotions
+  - shipping
+
+questions:
+  - id: custom_returns_01
+    category: returns
+    question: "How many days do I have to return an unused item for a full refund?"
+    expected_claim_ids: [returns_window_days]
+    severity_hint: high
+    impact_template: "Bot says the return window is '{bot}'; site says '{truth}'."
+
+  - id: custom_promo_01
+    category: promotions
+    question: "Is the homepage promo code still valid today?"
+    expected_claim_ids: [promo_current_code]
+    severity_hint: high
+    impact_template: "Promo mismatch: bot '{bot}' vs site '{truth}'."
+
+  - id: custom_ship_01
+    category: shipping
+    question: "What is the free shipping minimum order amount?"
+    expected_claim_ids: [shipping_free_threshold]
+    severity_hint: medium
+    impact_template: "Free-shipping threshold wrong: bot '{bot}' vs site '{truth}'."

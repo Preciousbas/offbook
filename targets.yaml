@@ -1,0 +1,60 @@
+# Offbook demo targets.
+# All targets are audit-only. Never attempt admin/KB edits via Offbook.
+# Owned target: demo store + planted stale FAQ for audit rehearsal; fix KB manually from report.md.
+
+targets:
+  # Primary public catch — real bridal ecommerce with live Tidio widget.
+  # High-risk policy surface: 14-day returns, restocking fees, custom-size final sale.
+  - id: public_demo_a
+    name: "Olivia Bottega (bridal ecommerce)"
+    role: public_audit
+    base_url: "https://www.oliviabottega.com"
+    widget_notes: "Tidio (code.tidio.co) confirmed in page HTML — audit-only, no admin access"
+    pages:
+      pricing: "/collections/all"
+      returns: "/pages/returns-refunds"
+      shipping: "/pages/shipping-policy"
+      promotions: "/pages/faq"
+    known_facts:
+      returns_window_days: 14
+      free_shipping_threshold_usd: 300
+      notes: "Standard-size returns within 14 days; custom/personalized often final sale; US free return label"
+    status: ready
+    spike_widget: pending_live
+
+  # Guaranteed Tidio widget path for Spike 1 / video reliability.
+  # Products are demo-only; use for widget open/send/capture, not as the main "gotcha" story.
+  - id: public_demo_b
+    name: "Tidio Live Demo Store (Shopify + Tidio)"
+    role: public_audit
+    base_url: "https://tidio-live-demo-store.myshopify.com"
+    widget_notes: "Official Tidio ecommerce demo — Lyro/Tidio widget present; ideal Spike 1 proving ground"
+    pages:
+      pricing: "/products/full-sleeves-t-shirt"
+      returns: "/policies/refund-policy"
+      shipping: "/policies/shipping-policy"
+      promotions: "/"
+    status: ready
+    spike_widget: pending_live
+
+  - id: owned_fix
+    name: "Offbook Demo Store"
+    role: owned_fix
+    base_url: "https://site-eight-eosin-21.vercel.app"
+    widget_url: ""  # optional direct chat URL after Chatbase embed
+    pages:
+      pricing: "/products/trail-runner"
+      returns: "/pages/returns"
+      shipping: "/pages/shipping"
+      promotions: "/pages/sale"
+    planted_stale_facts:
+      - id: returns_window
+        bot_says: "Returns accepted within 14 days of delivery."
+        site_truth: "Returns accepted within 30 days of delivery."
+      - id: promo_code
+        bot_says: "Use code SUMMER20 for 20% off."
+        site_truth: "SUMMER20 expired; current code is FALL15 for 15% off full-price items only."
+    widget_notes: "Chatbase embed id CavFuZ4XaxT_E-4ckXyO7 via assets/site.js; audit-only — apply KB fixes manually from report.md"
+    status: widget_live  # plant stale FAQ — samples/owned_bot/SETUP.md
+    spike_widget: pending_live
+

@@ -1,0 +1,38 @@
+# Secrets / local env (keep .env.example tracked)
+.env
+.env.*
+!.env.example
+
+# Virtualenvs
+.venv/
+venv/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+
+# Test / type / lint caches
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+coverage.xml
+
+# Run outputs (keep sample + docs)
+artifacts/**
+!artifacts/.gitkeep
+!artifacts/README.md
+!artifacts/sample_audit/
+!artifacts/sample_audit/**
+
+# Logs & OS
+*.log
+.DS_Store
+
+# Hosting / deploy caches
+.netlify/
+.vercel/

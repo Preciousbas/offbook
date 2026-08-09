@@ -1,0 +1,46 @@
+# Short demo bank — money-shot mismatches for owned_fix live clips.
+# Use with: offbook audit --target owned_fix --live --questions questions/demo_money_shots.yaml
+# Full 30-question scrollable report: offbook audit --target owned_fix --dry-run
+
+version: 1
+vertical: ecommerce
+categories:
+  - pricing
+  - returns
+  - promotions
+
+questions:
+  - id: price_01
+    category: pricing
+    question: "What is the current price of your bestselling item before tax and shipping?"
+    expected_claim_ids: [price_bestseller]
+    severity_hint: high
+    impact_template: "The chatbot quoted {bot}, but your website lists {truth}. Customers may abandon checkout or demand a price-match refund."
+
+  - id: returns_01
+    category: returns
+    question: "How many days do I have to return an unused item for a full refund?"
+    expected_claim_ids: [returns_window_days]
+    severity_hint: high
+    impact_template: "The chatbot says returns are {bot}, but your website says {truth}. You may turn away returns you would honor — or promise refunds you won't."
+
+  - id: promo_01
+    category: promotions
+    question: "Can I still use the code SUMMER20 from last month's email?"
+    expected_claim_ids: [promo_summer20_status]
+    severity_hint: high
+    impact_template: "Honoring an expired code costs margin; denying a live code loses conversions."
+
+  - id: promo_04
+    category: promotions
+    question: "What is the current active discount code on the homepage?"
+    expected_claim_ids: [promo_current_code]
+    severity_hint: medium
+    impact_template: "Citing a dead code or missing the live one is immediate trust damage."
+
+  - id: price_02
+    category: pricing
+    question: "Do you charge sales tax on orders shipped within the US?"
+    expected_claim_ids: [tax_policy]
+    severity_hint: high
+    impact_template: "Wrong tax guidance surprises customers at checkout and can lead to chargebacks."

@@ -1,0 +1,8 @@
+{
+  "phase1_baseline_steps": 8,
+  "phase2_test_loop_steps": 180,
+  "phase3_report_steps": 8,
+  "total_estimated_steps": 196,
+  "greeting_captured": true,
+  "questions": 30
+}

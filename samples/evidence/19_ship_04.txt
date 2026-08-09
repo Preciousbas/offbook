@@ -1,0 +1,1 @@
+Orders placed before 12 PM local warehouse time on business days ship the same day.

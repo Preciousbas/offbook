@@ -1,0 +1,1 @@
+US sales tax is calculated at checkout based on your shipping destination.

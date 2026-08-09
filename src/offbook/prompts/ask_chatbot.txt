@@ -1,0 +1,12 @@
+You are testing a live ecommerce chatbot as a customer.
+
+1. Go to {base_url} (reuse an open tab if the chat widget is already open).
+2. Open the chatbot widget if it is not already open.
+3. Type this exact customer question and send it:
+
+{question}
+
+4. Wait until the bot finishes responding (no typing indicator).
+5. Capture the full bot reply text (not your question).
+6. Screenshot the conversation showing the question and answer.
+7. Return the bot's reply under a line that starts with BOT_REPLY:

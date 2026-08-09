@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://offbook.dev/schemas/claim.json",
+  "title": "GroundTruthClaim",
+  "type": "object",
+  "required": [
+    "id",
+    "category",
+    "claim_text",
+    "source_url",
+    "source_quote",
+    "checked_at"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9_\\-]+$",
+      "description": "Stable claim id referenced by the question bank"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "pricing",
+        "returns",
+        "promotions",
+        "shipping",
+        "availability",
+        "hours",
+        "edge"
+      ]
+    },
+    "claim_text": {
+      "type": "string",
+      "description": "Normalized checkable fact"
+    },
+    "value": {
+      "description": "Optional machine-readable value (number, string, bool, object)",
+      "type": ["string", "number", "boolean", "object", "null"]
+    },
+    "unit": {
+      "type": ["string", "null"]
+    },
+    "source_url": {
+      "type": "string",
+      "format": "uri"
+    },
+    "source_quote": {
+      "type": "string",
+      "minLength": 1
+    },
+    "checked_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "additionalProperties": false
+}

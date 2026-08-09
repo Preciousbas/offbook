@@ -1,0 +1,317 @@
+[
+  {
+    "id": "returns_window_days",
+    "category": "returns",
+    "claim_text": "Returns accepted within 30 days of delivery.",
+    "value": 30,
+    "unit": "days",
+    "source_url": "https://offbook-demo.example/pages/returns",
+    "source_quote": "You may return unused items within 30 days of delivery for a full refund.",
+    "checked_at": "2026-08-06T13:46:22.023163+00:00"
+  },
+  {
+    "id": "returns_opened",
+    "category": "returns",
+    "claim_text": "Opened but unused items may be returned within the return window.",
+    "value": true,
+    "unit": null,
+    "source_url": "https://offbook-demo.example/pages/returns",
+    "source_quote": "Opened packaging is OK if the product is unused and in original condition.",
+    "checked_at": "2026-08-06T13:46:22.023163+00:00"
+  },
+  {
+    "id": "returns_shipping_payer",
+    "category": "returns",
+    "claim_text": "Customer pays return shipping on change-of-mind returns.",
+    "value": "customer",
+    "unit": null,
+    "source_url": "https://offbook-demo.example/pages/returns",
+    "source_quote": "Customers are responsible for return shipping on change-of-mind returns.",
+    "checked_at": "2026-08-06T13:46:22.023163+00:00"
+  },
+  {
+    "id": "returns_final_sale",
+    "category": "returns",
+    "claim_text": "Final-sale and clearance items are non-refundable.",
+    "value": false,
+    "unit": null,
+    "source_url": "https://offbook-demo.example/pages/returns",
+    "source_quote": "Final sale items are non-refundable.",
+    "checked_at": "2026-08-06T13:46:22.023163+00:00"
+  },
+  {
+    "id": "returns_refund_timing",
+    "category": "returns",
+    "claim_text": "Refunds post within 5-10 business days after receipt.",
+    "value": {
+      "min_days": 5,
+      "max_days": 10
+    },
+    "unit": "business_days",
+    "source_url": "https://offbook-demo.example/pages/returns",
+    "source_quote": "Refunds appear in 5\u201310 business days after we receive the return.",
+    "checked_at": "2026-08-06T13:46:22.023163+00:00"
+  },
+  {
+    "id": "promo_summer20_status",
+    "category": "promotions",
+    "claim_text": "SUMMER20 has expired.",
+    "value": "expired",
+    "unit": null,
+    "source_url": "https://offbook-demo.example/pages/sale",
+    "source_quote": "Summer promo ended. Current code: FALL15 for 15% off full-price items.",
+    "checked_at": "2026-08-06T13:46:22.023163+00:00"
+  },
+  {
+    "id": "promo_current_code",
+    "category": "promotions",
+    "claim_text": "Current promo code is FALL15 (15% off full-price).",
+    "value": "FALL15",
+    "unit": null,
+    "source_url": "https://offbook-demo.example/pages/sale",
+    "source_quote": "Use FALL15 for 15% off full-price items. Sale items excluded.",
+    "checked_at": "2026-08-06T13:46:22.023163+00:00"
+  },
+  {
+    "id": "promo_free_ship_sale",
+    "category": "promotions",
+    "claim_text": "Free shipping does not apply to sale items under the threshold promo.",
+    "value": false,
+    "unit": null,
+    "source_url": "https://offbook-demo.example/pages/shipping",
+    "source_quote": "Free shipping over $75 applies to full-price merchandise only.",
+    "checked_at": "2026-08-06T13:46:22.023163+00:00"
+  },
+  {
+    "id": "promo_stacking",
+    "category": "promotions",
+    "claim_text": "Promo codes cannot be stacked with sitewide sales.",
+    "value": false,
+    "unit": null,
+    "source_url": "https://offbook-demo.example/pages/sale",
+    "source_quote": "Codes cannot be combined with other offers.",
+    "checked_at": "2026-08-06T13:46:22.023163+00:00"
+  },
+  {
+    "id": "promo_welcome_exclusions",
+    "category": "promotions",
+    "claim_text": "Welcome discount excludes already-reduced items.",
+    "value": false,
+    "unit": null,
+    "source_url": "https://offbook-demo.example/pages/sale",
+    "source_quote": "Welcome offer excludes sale and clearance.",
+    "checked_at": "2026-08-06T13:46:22.023163+00:00"
+  },
+  {
+    "id": "promo_holiday_live",
+    "category": "edge",
+    "claim_text": "Holiday sale mentioned on homepage is not live.",
+    "value": false,
+    "unit": null,
+    "source_url": "https://offbook-demo.example/",
+    "source_quote": "Holiday sale has ended. See current deals on /pages/sale.",
+    "checked_at": "2026-08-06T13:46:22.023163+00:00"
+  },
+  {
+    "id": "promo_manual_override",
+    "category": "edge",
+    "claim_text": "Support does not manually honor expired promo codes.",
+    "value": false,
+    "unit": null,
+    "source_url": "https://offbook-demo.example/pages/sale",
+    "source_quote": "Expired codes cannot be applied manually.",
+    "checked_at": "2026-08-06T13:46:22.023163+00:00"
+  },
+  {
+    "id": "shipping_free_threshold",
+    "category": "shipping",
+    "claim_text": "Free shipping on orders over $75.",
+    "value": 75,
+    "unit": "USD",
+    "source_url": "https://offbook-demo.example/pages/shipping",
+    "source_quote": "Free standard shipping on orders over $75.",
+    "checked_at": "2026-08-06T13:46:22.023163+00:00"
+  },
+  {
+    "id": "shipping_standard_days",
+    "category": "shipping",
+    "claim_text": "Standard shipping takes 3-7 business days.",
+    "value": {
+      "min_days": 3,
+      "max_days": 7
+    },
+    "unit": "business_days",
+    "source_url": "https://offbook-demo.example/pages/shipping",
+    "source_quote": "Standard delivery: 3\u20137 business days after shipment.",
+    "checked_at": "2026-08-06T13:46:22.023163+00:00"
+  },
+  {
+    "id": "shipping_international",
+    "category": "shipping",
+    "claim_text": "Ships to US and Canada only.",
+    "value": [
+      "US",
+      "CA"
+    ],
+    "unit": null,
+    "source_url": "https://offbook-demo.example/pages/shipping",
+    "source_quote": "We currently ship to the United States and Canada.",
+    "checked_at": "2026-08-06T13:46:22.023163+00:00"
+  },
+  {
+    "id": "shipping_same_day_cutoff",
+    "category": "shipping",
+    "claim_text": "Same-day shipping cutoff is 12:00 PM local warehouse time on business days.",
+    "value": "12:00",
+    "unit": null,
+    "source_url": "https://offbook-demo.example/pages/shipping",
+    "source_quote": "Orders placed before 12 PM ship same business day.",
+    "checked_at": "2026-08-06T13:46:22.023163+00:00"
+  },
+  {
+    "id": "shipping_carriers",
+    "category": "shipping",
+    "claim_text": "Standard domestic carrier is USPS; upgrades via UPS.",
+    "value": [
+      "USPS",
+      "UPS"
+    ],
+    "unit": null,
+    "source_url": "https://offbook-demo.example/pages/shipping",
+    "source_quote": "Standard: USPS. Expedited: UPS.",
+    "checked_at": "2026-08-06T13:46:22.023163+00:00"
+  },
+  {
+    "id": "price_bestseller",
+    "category": "pricing",
+    "claim_text": "Bestseller Trail Runner is $128 before tax and shipping.",
+    "value": 128,
+    "unit": "USD",
+    "source_url": "https://offbook-demo.example/products/trail-runner",
+    "source_quote": "Trail Runner \u2014 $128.00",
+    "checked_at": "2026-08-06T13:46:22.023163+00:00"
+  },
+  {
+    "id": "tax_policy",
+    "category": "pricing",
+    "claim_text": "US sales tax is calculated at checkout based on destination.",
+    "value": "checkout",
+    "unit": null,
+    "source_url": "https://offbook-demo.example/pages/shipping",
+    "source_quote": "Applicable sales tax is calculated at checkout.",
+    "checked_at": "2026-08-06T13:46:22.023163+00:00"
+  },
+  {
+    "id": "bundle_discount",
+    "category": "pricing",
+    "claim_text": "No automatic multi-buy discount unless marked.",
+    "value": false,
+    "unit": null,
+    "source_url": "https://offbook-demo.example/pages/sale",
+    "source_quote": "Bundle discounts only when explicitly marked on the product page.",
+    "checked_at": "2026-08-06T13:46:22.023163+00:00"
+  },
+  {
+    "id": "price_finality",
+    "category": "pricing",
+    "claim_text": "Listed prices exclude tax and shipping.",
+    "value": false,
+    "unit": null,
+    "source_url": "https://offbook-demo.example/products/trail-runner",
+    "source_quote": "Price does not include tax or shipping.",
+    "checked_at": "2026-08-06T13:46:22.023163+00:00"
+  },
+  {
+    "id": "member_pricing",
+    "category": "pricing",
+    "claim_text": "No separate member price list; email list gets occasional codes only.",
+    "value": false,
+    "unit": null,
+    "source_url": "https://offbook-demo.example/pages/sale",
+    "source_quote": "Subscribers receive promo codes; no permanent member pricing.",
+    "checked_at": "2026-08-06T13:46:22.023163+00:00"
+  },
+  {
+    "id": "price_binding_source",
+    "category": "edge",
+    "claim_text": "Checkout price is binding; chatbot quotes are informational.",
+    "value": "checkout",
+    "unit": null,
+    "source_url": "https://offbook-demo.example/pages/terms",
+    "source_quote": "The price shown at checkout is the amount charged.",
+    "checked_at": "2026-08-06T13:46:22.023163+00:00"
+  },
+  {
+    "id": "stock_bestseller",
+    "category": "availability",
+    "claim_text": "Trail Runner is in stock for sizes 8\u201312.",
+    "value": true,
+    "unit": null,
+    "source_url": "https://offbook-demo.example/products/trail-runner",
+    "source_quote": "In stock \u2014 ships within 1 business day.",
+    "checked_at": "2026-08-06T13:46:22.023163+00:00"
+  },
+  {
+    "id": "stock_backorder_wait",
+    "category": "availability",
+    "claim_text": "Backorders typically ship in 2-4 weeks.",
+    "value": {
+      "min_weeks": 2,
+      "max_weeks": 4
+    },
+    "unit": "weeks",
+    "source_url": "https://offbook-demo.example/pages/faq",
+    "source_quote": "Backordered items usually ship in 2\u20134 weeks.",
+    "checked_at": "2026-08-06T13:46:22.023163+00:00"
+  },
+  {
+    "id": "stock_preorder",
+    "category": "availability",
+    "claim_text": "Preorders are offered only on products marked Preorder.",
+    "value": "marked_only",
+    "unit": null,
+    "source_url": "https://offbook-demo.example/pages/faq",
+    "source_quote": "Preorder available only when labeled on the product page.",
+    "checked_at": "2026-08-06T13:46:22.023163+00:00"
+  },
+  {
+    "id": "stock_restock_notify",
+    "category": "availability",
+    "claim_text": "Email restock notifications are available via Notify Me.",
+    "value": true,
+    "unit": null,
+    "source_url": "https://offbook-demo.example/products/trail-runner",
+    "source_quote": "Sold out sizes: click Notify Me.",
+    "checked_at": "2026-08-06T13:46:22.023163+00:00"
+  },
+  {
+    "id": "stock_clearance_limited",
+    "category": "availability",
+    "claim_text": "Clearance is limited to stock on hand; no restock.",
+    "value": true,
+    "unit": null,
+    "source_url": "https://offbook-demo.example/pages/sale",
+    "source_quote": "Clearance items are final stock \u2014 no restocks.",
+    "checked_at": "2026-08-06T13:46:22.023163+00:00"
+  },
+  {
+    "id": "gift_card_expiry",
+    "category": "edge",
+    "claim_text": "Gift cards do not expire.",
+    "value": false,
+    "unit": null,
+    "source_url": "https://offbook-demo.example/pages/gift-cards",
+    "source_quote": "Gift cards never expire.",
+    "checked_at": "2026-08-06T13:46:22.023163+00:00"
+  },
+  {
+    "id": "returns_gift_no_order",
+    "category": "returns",
+    "claim_text": "Gifts can be returned with packing slip even without order number.",
+    "value": true,
+    "unit": null,
+    "source_url": "https://offbook-demo.example/pages/returns",
+    "source_quote": "Gift returns accepted with packing slip; merchandise credit issued.",
+    "checked_at": "2026-08-06T13:46:22.023163+00:00"
+  }
+]

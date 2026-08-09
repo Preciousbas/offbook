@@ -1,0 +1,15 @@
+Extract checkable ecommerce facts from this page.
+
+URL: {page_url}
+
+PAGE TEXT:
+{page_text}
+
+Return ONLY a JSON array. Each object must include:
+- id (snake_case, stable)
+- category (pricing|returns|promotions|shipping|availability|hours|edge)
+- claim_text (one checkable sentence)
+- value (number/string/bool/object or null)
+- source_quote (short verbatim quote)
+Prefer price amounts, day counts, promo codes, shipping thresholds, and refund rules.
+Skip marketing fluff.

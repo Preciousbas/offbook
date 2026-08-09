@@ -1,0 +1,632 @@
+[
+  {
+    "id": "finding_price_01",
+    "question_id": "price_01",
+    "category": "pricing",
+    "question": "What is the current price of your bestselling item before tax and shipping?",
+    "bot_reply": "Our bestseller is $99 right now.",
+    "bot_claims": [
+      "Our bestseller is $99 right now."
+    ],
+    "expected_claim_ids": [
+      "price_bestseller"
+    ],
+    "ground_truth": "Bestseller Trail Runner is $128 before tax and shipping.",
+    "result": "mismatch",
+    "severity": "high",
+    "impact": "Bot quoted Our bestseller is $99 right now. while the site lists Bestseller Trail Runner is $128 before tax and shipping. \u2014 customers may abandon or demand price-match refunds.",
+    "corrected_answer": "Bestseller Trail Runner is $128 before tax and shipping.",
+    "evidence_screenshot": "evidence/01_price_01.txt",
+    "source_url": "https://offbook-demo.example/products/trail-runner",
+    "status": "open"
+  },
+  {
+    "id": "finding_price_02",
+    "question_id": "price_02",
+    "category": "pricing",
+    "question": "Do you charge sales tax on orders shipped within the US?",
+    "bot_reply": "US sales tax is calculated at checkout based on your shipping destination.",
+    "bot_claims": [
+      "US sales tax is calculated at checkout based on your shipping destination."
+    ],
+    "expected_claim_ids": [
+      "tax_policy"
+    ],
+    "ground_truth": "US sales tax is calculated at checkout based on destination.",
+    "result": "match",
+    "severity": "low",
+    "impact": null,
+    "corrected_answer": null,
+    "evidence_screenshot": "evidence/02_price_02.txt",
+    "source_url": "https://offbook-demo.example/pages/shipping",
+    "status": "open"
+  },
+  {
+    "id": "finding_price_03",
+    "question_id": "price_03",
+    "category": "pricing",
+    "question": "Is there a discount if I buy two of the same product?",
+    "bot_reply": "There is no automatic multi-buy discount unless a product page explicitly marks a bundle deal.",
+    "bot_claims": [
+      "There is no automatic multi-buy discount unless a product page explicitly marks a bundle deal."
+    ],
+    "expected_claim_ids": [
+      "bundle_discount"
+    ],
+    "ground_truth": "No automatic multi-buy discount unless marked.",
+    "result": "match",
+    "severity": "low",
+    "impact": null,
+    "corrected_answer": null,
+    "evidence_screenshot": "evidence/03_price_03.txt",
+    "source_url": "https://offbook-demo.example/pages/sale",
+    "status": "open"
+  },
+  {
+    "id": "finding_price_04",
+    "question_id": "price_04",
+    "category": "pricing",
+    "question": "Are sale prices the final amount or do fees get added at checkout?",
+    "bot_reply": "Listed prices exclude tax and shipping \u2014 those are added at checkout.",
+    "bot_claims": [
+      "Listed prices exclude tax and shipping \u2014 those are added at checkout."
+    ],
+    "expected_claim_ids": [
+      "price_finality"
+    ],
+    "ground_truth": "Listed prices exclude tax and shipping.",
+    "result": "match",
+    "severity": "low",
+    "impact": null,
+    "corrected_answer": null,
+    "evidence_screenshot": "evidence/04_price_04.txt",
+    "source_url": "https://offbook-demo.example/products/trail-runner",
+    "status": "open"
+  },
+  {
+    "id": "finding_price_05",
+    "question_id": "price_05",
+    "category": "pricing",
+    "question": "Do members or email subscribers get a different price than the public site?",
+    "bot_reply": "We don't have a separate member price list; email subscribers just get occasional promo codes.",
+    "bot_claims": [
+      "We don't have a separate member price list; email subscribers just get occasional promo codes."
+    ],
+    "expected_claim_ids": [
+      "member_pricing"
+    ],
+    "ground_truth": "No separate member price list; email list gets occasional codes only.",
+    "result": "match",
+    "severity": "low",
+    "impact": null,
+    "corrected_answer": null,
+    "evidence_screenshot": "evidence/05_price_05.txt",
+    "source_url": "https://offbook-demo.example/pages/sale",
+    "status": "open"
+  },
+  {
+    "id": "finding_returns_01",
+    "question_id": "returns_01",
+    "category": "returns",
+    "question": "How many days do I have to return an unused item for a full refund?",
+    "bot_reply": "You have 14 days from delivery to return unused items for a full refund.",
+    "bot_claims": [
+      "You have 14 days from delivery to return unused items for a full refund."
+    ],
+    "expected_claim_ids": [
+      "returns_window_days"
+    ],
+    "ground_truth": "Returns accepted within 30 days of delivery.",
+    "result": "mismatch",
+    "severity": "high",
+    "impact": "Bot says the return window is 'You have 14 days from delivery to return unused items for a full refund.'; site says 'Returns accepted within 30 days of delivery.' \u2014 you're turning away returns you'd honor (or promising refunds you won't).",
+    "corrected_answer": "Returns accepted within 30 days of delivery.",
+    "evidence_screenshot": "evidence/06_returns_01.txt",
+    "source_url": "https://offbook-demo.example/pages/returns",
+    "status": "open"
+  },
+  {
+    "id": "finding_returns_02",
+    "question_id": "returns_02",
+    "category": "returns",
+    "question": "If I already opened the package but didn't use the product, can I still get a full refund?",
+    "bot_reply": "Yes \u2014 opened but unused items can be returned within the 30-day window if they're in original condition.",
+    "bot_claims": [
+      "Yes \u2014 opened but unused items can be returned within the 30-day window if they're in original condition."
+    ],
+    "expected_claim_ids": [
+      "returns_opened"
+    ],
+    "ground_truth": "Opened but unused items may be returned within the return window.",
+    "result": "match",
+    "severity": "low",
+    "impact": null,
+    "corrected_answer": null,
+    "evidence_screenshot": "evidence/07_returns_02.txt",
+    "source_url": "https://offbook-demo.example/pages/returns",
+    "status": "open"
+  },
+  {
+    "id": "finding_returns_03",
+    "question_id": "returns_03",
+    "category": "returns",
+    "question": "Who pays return shipping on a standard change-of-mind return?",
+    "bot_reply": "For change-of-mind returns, customers are responsible for return shipping.",
+    "bot_claims": [
+      "For change-of-mind returns, customers are responsible for return shipping."
+    ],
+    "expected_claim_ids": [
+      "returns_shipping_payer"
+    ],
+    "ground_truth": "Customer pays return shipping on change-of-mind returns.",
+    "result": "match",
+    "severity": "low",
+    "impact": null,
+    "corrected_answer": null,
+    "evidence_screenshot": "evidence/08_returns_03.txt",
+    "source_url": "https://offbook-demo.example/pages/returns",
+    "status": "open"
+  },
+  {
+    "id": "finding_returns_04",
+    "question_id": "returns_04",
+    "category": "returns",
+    "question": "Are final-sale or clearance items eligible for refunds?",
+    "bot_reply": "Final-sale and clearance items are non-refundable.",
+    "bot_claims": [
+      "Final-sale and clearance items are non-refundable."
+    ],
+    "expected_claim_ids": [
+      "returns_final_sale"
+    ],
+    "ground_truth": "Final-sale and clearance items are non-refundable.",
+    "result": "match",
+    "severity": "low",
+    "impact": null,
+    "corrected_answer": null,
+    "evidence_screenshot": "evidence/09_returns_04.txt",
+    "source_url": "https://offbook-demo.example/pages/returns",
+    "status": "open"
+  },
+  {
+    "id": "finding_returns_05",
+    "question_id": "returns_05",
+    "category": "returns",
+    "question": "How long after you receive my return will I see the refund on my card?",
+    "bot_reply": "Refunds usually post within 5\u201310 business days after we receive the return.",
+    "bot_claims": [
+      "Refunds usually post within 5\u201310 business days after we receive the return."
+    ],
+    "expected_claim_ids": [
+      "returns_refund_timing"
+    ],
+    "ground_truth": "Refunds post within 5-10 business days after receipt.",
+    "result": "match",
+    "severity": "low",
+    "impact": null,
+    "corrected_answer": null,
+    "evidence_screenshot": "evidence/10_returns_05.txt",
+    "source_url": "https://offbook-demo.example/pages/returns",
+    "status": "open"
+  },
+  {
+    "id": "finding_promo_01",
+    "question_id": "promo_01",
+    "category": "promotions",
+    "question": "Can I still use the code SUMMER20 from last month's email?",
+    "bot_reply": "Yes! You can still use SUMMER20 for 20% off your order.",
+    "bot_claims": [
+      "You can still use SUMMER20 for 20% off your order."
+    ],
+    "expected_claim_ids": [
+      "promo_summer20_status"
+    ],
+    "ground_truth": "SUMMER20 has expired.",
+    "result": "mismatch",
+    "severity": "high",
+    "impact": "Honoring an expired code costs margin; denying a live code loses conversions.",
+    "corrected_answer": "SUMMER20 has expired.",
+    "evidence_screenshot": "evidence/11_promo_01.txt",
+    "source_url": "https://offbook-demo.example/pages/sale",
+    "status": "open"
+  },
+  {
+    "id": "finding_promo_02",
+    "question_id": "promo_02",
+    "category": "promotions",
+    "question": "Does free shipping apply to discounted or sale items?",
+    "bot_reply": "Free shipping over $75 applies to full-price merchandise only \u2014 not sale items.",
+    "bot_claims": [
+      "Free shipping over $75 applies to full-price merchandise only \u2014 not sale items."
+    ],
+    "expected_claim_ids": [
+      "promo_free_ship_sale"
+    ],
+    "ground_truth": "Free shipping does not apply to sale items under the threshold promo.",
+    "result": "match",
+    "severity": "low",
+    "impact": null,
+    "corrected_answer": null,
+    "evidence_screenshot": "evidence/12_promo_02.txt",
+    "source_url": "https://offbook-demo.example/pages/shipping",
+    "status": "open"
+  },
+  {
+    "id": "finding_promo_03",
+    "question_id": "promo_03",
+    "category": "promotions",
+    "question": "Can I stack a promo code with the sitewide sale?",
+    "bot_reply": "Promo codes cannot be stacked with sitewide sales.",
+    "bot_claims": [
+      "Promo codes cannot be stacked with sitewide sales."
+    ],
+    "expected_claim_ids": [
+      "promo_stacking"
+    ],
+    "ground_truth": "Promo codes cannot be stacked with sitewide sales.",
+    "result": "match",
+    "severity": "low",
+    "impact": null,
+    "corrected_answer": null,
+    "evidence_screenshot": "evidence/13_promo_03.txt",
+    "source_url": "https://offbook-demo.example/pages/sale",
+    "status": "open"
+  },
+  {
+    "id": "finding_promo_04",
+    "question_id": "promo_04",
+    "category": "promotions",
+    "question": "What is the current active discount code on the homepage?",
+    "bot_reply": "The current homepage code is SUMMER20.",
+    "bot_claims": [
+      "The current homepage code is SUMMER20."
+    ],
+    "expected_claim_ids": [
+      "promo_current_code"
+    ],
+    "ground_truth": "Current promo code is FALL15 (15% off full-price).",
+    "result": "hallucinate",
+    "severity": "medium",
+    "impact": "Citing a dead code or missing the live one is immediate trust damage.",
+    "corrected_answer": "Current promo code is FALL15 (15% off full-price).",
+    "evidence_screenshot": "evidence/14_promo_04.txt",
+    "source_url": "https://offbook-demo.example/pages/sale",
+    "status": "open"
+  },
+  {
+    "id": "finding_promo_05",
+    "question_id": "promo_05",
+    "category": "promotions",
+    "question": "Is the welcome email discount valid on already-reduced items?",
+    "bot_reply": "The welcome discount excludes already-reduced / sale items.",
+    "bot_claims": [
+      "The welcome discount excludes already-reduced / sale items."
+    ],
+    "expected_claim_ids": [
+      "promo_welcome_exclusions"
+    ],
+    "ground_truth": "Welcome discount excludes already-reduced items.",
+    "result": "match",
+    "severity": "low",
+    "impact": null,
+    "corrected_answer": null,
+    "evidence_screenshot": "evidence/15_promo_05.txt",
+    "source_url": "https://offbook-demo.example/pages/sale",
+    "status": "open"
+  },
+  {
+    "id": "finding_ship_01",
+    "question_id": "ship_01",
+    "category": "shipping",
+    "question": "How many business days does standard shipping usually take once an order ships?",
+    "bot_reply": "Standard shipping usually takes 3\u20137 business days once an order ships.",
+    "bot_claims": [
+      "Standard shipping usually takes 3\u20137 business days once an order ships."
+    ],
+    "expected_claim_ids": [
+      "shipping_standard_days"
+    ],
+    "ground_truth": "Standard shipping takes 3-7 business days.",
+    "result": "match",
+    "severity": "low",
+    "impact": null,
+    "corrected_answer": null,
+    "evidence_screenshot": "evidence/16_ship_01.txt",
+    "source_url": "https://offbook-demo.example/pages/shipping",
+    "status": "open"
+  },
+  {
+    "id": "finding_ship_02",
+    "question_id": "ship_02",
+    "category": "shipping",
+    "question": "What is the free shipping minimum order amount?",
+    "bot_reply": "Free standard shipping starts on orders over $75.",
+    "bot_claims": [
+      "Free standard shipping starts on orders over $75."
+    ],
+    "expected_claim_ids": [
+      "shipping_free_threshold"
+    ],
+    "ground_truth": "Free shipping on orders over $75.",
+    "result": "match",
+    "severity": "low",
+    "impact": null,
+    "corrected_answer": null,
+    "evidence_screenshot": "evidence/17_ship_02.txt",
+    "source_url": "https://offbook-demo.example/pages/shipping",
+    "status": "open"
+  },
+  {
+    "id": "finding_ship_03",
+    "question_id": "ship_03",
+    "category": "shipping",
+    "question": "Do you ship internationally, and to which regions?",
+    "bot_reply": "We currently ship to the United States and Canada only.",
+    "bot_claims": [
+      "We currently ship to the United States and Canada only."
+    ],
+    "expected_claim_ids": [
+      "shipping_international"
+    ],
+    "ground_truth": "Ships to US and Canada only.",
+    "result": "match",
+    "severity": "low",
+    "impact": null,
+    "corrected_answer": null,
+    "evidence_screenshot": "evidence/18_ship_03.txt",
+    "source_url": "https://offbook-demo.example/pages/shipping",
+    "status": "open"
+  },
+  {
+    "id": "finding_ship_04",
+    "question_id": "ship_04",
+    "category": "shipping",
+    "question": "If I order today before the cutoff, does it ship same day?",
+    "bot_reply": "Orders placed before 12 PM local warehouse time on business days ship the same day.",
+    "bot_claims": [
+      "Orders placed before 12 PM local warehouse time on business days ship the same day."
+    ],
+    "expected_claim_ids": [
+      "shipping_same_day_cutoff"
+    ],
+    "ground_truth": "Same-day shipping cutoff is 12:00 PM local warehouse time on business days.",
+    "result": "match",
+    "severity": "low",
+    "impact": null,
+    "corrected_answer": null,
+    "evidence_screenshot": "evidence/19_ship_04.txt",
+    "source_url": "https://offbook-demo.example/pages/shipping",
+    "status": "open"
+  },
+  {
+    "id": "finding_ship_05",
+    "question_id": "ship_05",
+    "category": "shipping",
+    "question": "What carriers do you use for standard domestic orders?",
+    "bot_reply": "Standard domestic is USPS; expedited upgrades use UPS.",
+    "bot_claims": [
+      "Standard domestic is USPS; expedited upgrades use UPS."
+    ],
+    "expected_claim_ids": [
+      "shipping_carriers"
+    ],
+    "ground_truth": "Standard domestic carrier is USPS; upgrades via UPS.",
+    "result": "match",
+    "severity": "low",
+    "impact": null,
+    "corrected_answer": null,
+    "evidence_screenshot": "evidence/20_ship_05.txt",
+    "source_url": "https://offbook-demo.example/pages/shipping",
+    "status": "open"
+  },
+  {
+    "id": "finding_avail_01",
+    "question_id": "avail_01",
+    "category": "availability",
+    "question": "Is your bestselling product in stock and ready to ship today?",
+    "bot_reply": "Yes \u2014 the Trail Runner bestseller is in stock for sizes 8\u201312 and ships within 1 business day.",
+    "bot_claims": [
+      "Yes \u2014 the Trail Runner bestseller is in stock for sizes 8\u201312 and ships within 1 business day."
+    ],
+    "expected_claim_ids": [
+      "stock_bestseller"
+    ],
+    "ground_truth": "Trail Runner is in stock for sizes 8\u201312.",
+    "result": "match",
+    "severity": "low",
+    "impact": null,
+    "corrected_answer": null,
+    "evidence_screenshot": "evidence/21_avail_01.txt",
+    "source_url": "https://offbook-demo.example/products/trail-runner",
+    "status": "open"
+  },
+  {
+    "id": "finding_avail_02",
+    "question_id": "avail_02",
+    "category": "availability",
+    "question": "If an item is on backorder, how long is the typical wait?",
+    "bot_reply": "Backordered items typically ship in 2\u20134 weeks.",
+    "bot_claims": [
+      "Backordered items typically ship in 2\u20134 weeks."
+    ],
+    "expected_claim_ids": [
+      "stock_backorder_wait"
+    ],
+    "ground_truth": "Backorders typically ship in 2-4 weeks.",
+    "result": "match",
+    "severity": "low",
+    "impact": null,
+    "corrected_answer": null,
+    "evidence_screenshot": "evidence/22_avail_02.txt",
+    "source_url": "https://offbook-demo.example/pages/faq",
+    "status": "open"
+  },
+  {
+    "id": "finding_avail_03",
+    "question_id": "avail_03",
+    "category": "availability",
+    "question": "Can I preorder items that aren't released yet?",
+    "bot_reply": "Preorders are only available on products marked Preorder.",
+    "bot_claims": [
+      "Preorders are only available on products marked Preorder."
+    ],
+    "expected_claim_ids": [
+      "stock_preorder"
+    ],
+    "ground_truth": "Preorders are offered only on products marked Preorder.",
+    "result": "match",
+    "severity": "low",
+    "impact": null,
+    "corrected_answer": null,
+    "evidence_screenshot": "evidence/23_avail_03.txt",
+    "source_url": "https://offbook-demo.example/pages/faq",
+    "status": "open"
+  },
+  {
+    "id": "finding_avail_04",
+    "question_id": "avail_04",
+    "category": "availability",
+    "question": "Do you restock sold-out sizes, and can I get notified?",
+    "bot_reply": "Yes \u2014 use Notify Me on the product page for restock emails.",
+    "bot_claims": [
+      "Yes \u2014 use Notify Me on the product page for restock emails."
+    ],
+    "expected_claim_ids": [
+      "stock_restock_notify"
+    ],
+    "ground_truth": "Email restock notifications are available via Notify Me.",
+    "result": "hallucinate",
+    "severity": "low",
+    "impact": "Promising restock alerts you don't send wastes warm demand.",
+    "corrected_answer": "Email restock notifications are available via Notify Me.",
+    "evidence_screenshot": "evidence/24_avail_04.txt",
+    "source_url": "https://offbook-demo.example/products/trail-runner",
+    "status": "open"
+  },
+  {
+    "id": "finding_avail_05",
+    "question_id": "avail_05",
+    "category": "availability",
+    "question": "Are warehouse clearance items limited to stock on hand with no restock?",
+    "bot_reply": "Clearance is limited to stock on hand with no restock.",
+    "bot_claims": [
+      "Clearance is limited to stock on hand with no restock."
+    ],
+    "expected_claim_ids": [
+      "stock_clearance_limited"
+    ],
+    "ground_truth": "Clearance is limited to stock on hand; no restock.",
+    "result": "match",
+    "severity": "low",
+    "impact": null,
+    "corrected_answer": null,
+    "evidence_screenshot": "evidence/25_avail_05.txt",
+    "source_url": "https://offbook-demo.example/pages/sale",
+    "status": "open"
+  },
+  {
+    "id": "finding_edge_01",
+    "question_id": "edge_01",
+    "category": "edge",
+    "question": "Your homepage still mentions a holiday sale \u2014 is that offer live right now?",
+    "bot_reply": "Yes, the holiday sale is still running \u2014 enjoy the savings!",
+    "bot_claims": [
+      "Yes, the holiday sale is still running \u2014 enjoy the savings!"
+    ],
+    "expected_claim_ids": [
+      "promo_holiday_live"
+    ],
+    "ground_truth": "Holiday sale mentioned on homepage is not live.",
+    "result": "hallucinate",
+    "severity": "high",
+    "impact": "Confirming a dead homepage promo is a classic chatbot rot failure.",
+    "corrected_answer": "Holiday sale mentioned on homepage is not live.",
+    "evidence_screenshot": "evidence/26_edge_01.txt",
+    "source_url": "https://offbook-demo.example/",
+    "status": "open"
+  },
+  {
+    "id": "finding_edge_02",
+    "question_id": "edge_02",
+    "category": "edge",
+    "question": "I used an old gift card from two years ago \u2014 is the balance still valid?",
+    "bot_reply": "Gift cards do not expire, so a two-year-old balance is still valid.",
+    "bot_claims": [
+      "Gift cards do not expire, so a two-year-old balance is still valid."
+    ],
+    "expected_claim_ids": [
+      "gift_card_expiry"
+    ],
+    "ground_truth": "Gift cards do not expire.",
+    "result": "match",
+    "severity": "low",
+    "impact": null,
+    "corrected_answer": null,
+    "evidence_screenshot": "evidence/27_edge_02.txt",
+    "source_url": "https://offbook-demo.example/pages/gift-cards",
+    "status": "open"
+  },
+  {
+    "id": "finding_edge_03",
+    "question_id": "edge_03",
+    "category": "edge",
+    "question": "Can customer support manually honor last month's discount if the code is expired?",
+    "bot_reply": "Absolutely \u2014 just ask support and they can manually apply last month's discount.",
+    "bot_claims": [
+      "Absolutely \u2014 just ask support and they can manually apply last month's discount."
+    ],
+    "expected_claim_ids": [
+      "promo_manual_override"
+    ],
+    "ground_truth": "Support does not manually honor expired promo codes.",
+    "result": "hallucinate",
+    "severity": "high",
+    "impact": "The bot promising manual overrides you won't do creates entitlement fights.",
+    "corrected_answer": "Support does not manually honor expired promo codes.",
+    "evidence_screenshot": "evidence/28_edge_03.txt",
+    "source_url": "https://offbook-demo.example/pages/sale",
+    "status": "open"
+  },
+  {
+    "id": "finding_edge_04",
+    "question_id": "edge_04",
+    "category": "edge",
+    "question": "If the chatbot gives me a price and checkout shows a higher one, which is binding?",
+    "bot_reply": "The price shown at checkout is binding; chatbot quotes are informational only.",
+    "bot_claims": [
+      "The price shown at checkout is binding; chatbot quotes are informational only."
+    ],
+    "expected_claim_ids": [
+      "price_binding_source"
+    ],
+    "ground_truth": "Checkout price is binding; chatbot quotes are informational.",
+    "result": "match",
+    "severity": "low",
+    "impact": null,
+    "corrected_answer": null,
+    "evidence_screenshot": "evidence/29_edge_04.txt",
+    "source_url": "https://offbook-demo.example/pages/terms",
+    "status": "open"
+  },
+  {
+    "id": "finding_edge_05",
+    "question_id": "edge_05",
+    "category": "edge",
+    "question": "Can I return a gift without the original order number if I have the packing slip?",
+    "bot_reply": "Yes \u2014 gifts can be returned with the packing slip even without the original order number (merchandise credit).",
+    "bot_claims": [
+      "Yes \u2014 gifts can be returned with the packing slip even without the original order number (merchandise credit)."
+    ],
+    "expected_claim_ids": [
+      "returns_gift_no_order"
+    ],
+    "ground_truth": "Gifts can be returned with packing slip even without order number.",
+    "result": "match",
+    "severity": "low",
+    "impact": null,
+    "corrected_answer": null,
+    "evidence_screenshot": "evidence/30_edge_05.txt",
+    "source_url": "https://offbook-demo.example/pages/returns",
+    "status": "open"
+  }
+]

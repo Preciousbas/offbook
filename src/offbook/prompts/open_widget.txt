@@ -1,0 +1,8 @@
+Open the live website at {base_url}.
+
+1. Dismiss cookie banners if needed.
+2. Locate and open the live chatbot / messaging widget (chat bubble, "Chat with us", Intercom/Tidio/Crisp launcher, etc.).
+3. Wait until the greeting / opening message is visible.
+4. Screenshot the widget with the greeting visible.
+5. Return the exact greeting text under a line that starts with BOT_REPLY:
+6. If you cannot find a chatbot widget, say so clearly and fail the task.
