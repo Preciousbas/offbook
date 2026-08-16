@@ -3,7 +3,6 @@
 > Keep ecommerce chatbots on-script — a [Coasty](https://coasty.ai) computer-use agent that QA-tests live store chat widgets against the business's own website, then ships a severity-ranked, dollarized report of every place the bot is off-book.
 
 - **[Coasty API](https://coasty.ai/developers)**
-- **[Demo script](docs/DEMO_SCRIPT.md)** · **[Step map](docs/STEP_MAP.md)**
 
 ---
 
